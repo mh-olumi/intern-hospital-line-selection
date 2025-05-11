@@ -1,0 +1,118 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+ <title>لیست ظرفیت</title>
+ {% load static %}
+ <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style_capacity.css' %}">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">
+       <meta charset="UTF-8">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+       <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+       <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+        <script type="text/babel">
+        const { useState } = React
+
+
+  fetch("{% static 'data_l.json' %}").then(response => {
+    return response.json();
+  }).then(data => {
+    var data_l = data
+    const App = () => {
+        const [tables, setTables] = useState(data_l);
+
+          return (
+              
+              <tbody>
+                  {tables.map((table) => (
+                      <tr class={table.class}>
+                      <td id={table.first.id} title={table.first.title} class={table.first.class} colspan={table.first.colspan} rowspan={table.first.rowspan} >{table.first.content}</td>
+                      <td id={table.second.id} title={table.second.title} class={table.second.class} colspan={table.second.colspan} rowspan={table.second.rowspan} >{table.second.content}</td>
+                      <td id={table.third.id} title={table.third.title} class={table.third.class} colspan={table.third.colspan} rowspan={table.third.rowspan} >{table.third.content}</td>
+                      <td id={table.forth.id} title={table.forth.title} class={table.forth.class} colspan={table.forth.colspan} rowspan={table.forth.rowspan} >{table.forth.content}</td>
+                      <td id={table.fifth.id} title={table.fifth.title} class={table.fifth.class} colspan={table.fifth.colspan} rowspan={table.fifth.rowspan} >{table.fifth.content}</td>
+                      <td id={table.sixth.id} title={table.sixth.title} class={table.sixth.class} colspan={table.sixth.colspan} rowspan={table.sixth.rowspan} >{table.sixth.content}</td>
+                      <td id={table.seventh.id} title={table.seventh.title} class={table.seventh.class} colspan={table.seventh.colspan} rowspan={table.seventh.rowspan} >{table.seventh.content}</td>
+                      </tr>
+                  ))}
+              </tbody>
+              
+
+          )
+    }
+        
+    ReactDOM.render(
+      <App/>,
+      document.getElementById("root")
+    )
+    
+    
+   var mycapacity = '{{ mycapacity }}'
+   var unit;
+   var mycapacity_replaced = mycapacity.replace(/&quot;/g,'"')
+   var data_c = JSON.parse(mycapacity_replaced);
+   
+   for (var i = 1 ; i < 93; i += 1) {
+     unit = document.getElementById(i).title;
+    var listOfObjects = []
+     for (var l, k = 1; k < data_c.length; k += 1) {
+        
+       l = data_c[k]["fields"]["unit"];
+       if (unit === l) {
+         let bimarestan = data_c[k]["fields"]["hospital"];
+         let baghimande = data_c[k]["fields"]["remain"];
+         let kol = data_c[k]["fields"]["full"];
+         if (listOfObjects.length>0){
+         listOfObjects.push("\n")
+          listOfObjects.push(`${bimarestan}:  ${baghimande} از ${kol}`);
+          } else { var listOfObjects = [`${bimarestan}:  ${baghimande} از ${kol}`];}
+       }
+     }
+     document.getElementById(i).title = listOfObjects;
+   }
+   
+  }).catch(err => {
+    console.log('error');
+  });
+
+
+   
+   </script>
+  
+  </head>
+
+<body>
+<a href = "{% url 'index' %}"><button class = "btn btn-light">برگشت به صفحه اول</button></a>
+<br><br>
+<table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
+<col class="col0">
+<col class="col1">
+<col class="col2">
+<col class="col3">
+<col class="col4">
+<col class="col5">
+<col class="col6">
+<col class="col7">
+<col class="col8">
+<col class="col9">
+<col class="col10">
+<col class="col11">
+<col class="col12">
+<col class="col13">
+<col class="col14">
+<col class="col15">
+<col class="col16">
+<col class="col17">
+      <div id="root"></div>
+ </table>
+ <br><br>
+<a href = "{% url 'index' %}"><button class = "btn btn-light">برگشت به صفحه اول</button></a>
+<br><br>
+
+  </body>
+</html>

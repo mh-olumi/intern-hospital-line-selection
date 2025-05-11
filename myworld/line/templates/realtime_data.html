@@ -1,0 +1,262 @@
+<!-- realtimedata/templates/realtime_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Data</title>
+    <meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">
+ <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+   <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        
+        td.editable {
+            cursor: pointer;
+        }
+
+        td.editable input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Realtime data</h1>
+
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>num
+          </th>
+          <th>name
+          </th>
+          <th>gender
+          </th>
+          <th>start_time
+          </th>
+          <th>end_time
+          </th>
+          <th>line
+          </th>
+          <th>surgery
+          </th>
+          <th>internal
+          </th>
+          <th>pediatrics
+          </th>
+          <th>gynocology
+          </th>
+          <th>ortopedix_one
+          </th>
+          <th>ortopedix_two
+          </th>
+          <th>urology_one
+          </th>
+          <th>urology_two
+          </th>
+          <th>minor_week_one
+          </th>
+          <th>minor_week_two
+          </th>
+          <th>minor_week_three
+          </th>
+          <th>minor_month_one
+          </th>
+          <th>minor_month_two
+          </th>
+          <th>minor_month_three
+          </th>
+          <th>pack_one
+          </th>
+          <th>pack_two
+          </th>
+          <th>pack_three
+          </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Table data will be inserted here dynamically -->
+    </tbody>
+</table>
+<br><br><br><br>
+
+<h1>Selection Data</h1>
+<table id="selectionTable">
+    <thead>
+        <tr>
+            <th>choice</th>
+            <th>item_en</th>
+            <th>item_fa</th>
+            <th>iden</th>
+            <th>line_c</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Table data will be inserted here dynamically -->
+    </tbody>
+</table>
+
+
+<script>
+    // Function to fetch JSON data and populate the table
+    function fetchData() {
+        fetch('/get_real_time_data/')
+            .then(response => response.json())
+            .then(data => {
+                const jsonObject = JSON.parse(data);
+                const dataArray = Object.values(jsonObject);
+                const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+                tableBody.innerHTML = ''; // Clear existing data
+                // Use map to create rows for each item in the data array
+                dataArray.map(item => {
+                    const row = tableBody.insertRow();
+                    // Add a data attribute to the row for the item id
+                    row.setAttribute('data-id', row.rowIndex);
+                    
+                    row.insertCell(0).textContent = item.fields.num;
+                    row.insertCell(1).textContent = item.fields.name;
+                    row.insertCell(2).textContent = item.fields.gender;
+                    row.insertCell(3).textContent = item.fields.start_time;
+                    row.insertCell(4).textContent = item.fields.end_time;
+                    row.insertCell(5).textContent = item.fields.line;
+                    row.insertCell(6).textContent = item.fields.surgery;
+                    row.insertCell(7).textContent = item.fields.internal;
+                    row.insertCell(8).textContent = item.fields.pediatrics;
+                    row.insertCell(9).textContent = item.fields.gynocology;
+                    row.insertCell(10).textContent = item.fields.ortopedix_one;
+                    row.insertCell(11).textContent = item.fields.ortopedix_two;
+                    row.insertCell(12).textContent = item.fields.urology_one;
+                    row.insertCell(13).textContent = item.fields.urology_two;
+                    row.insertCell(14).textContent = item.fields.minor_week_one;
+                    row.insertCell(15).textContent = item.fields.minor_week_two;
+                    row.insertCell(16).textContent = item.fields.minor_week_three;
+                    row.insertCell(17).textContent = item.fields.minor_month_one;
+                    row.insertCell(18).textContent = item.fields.minor_month_two;
+                    row.insertCell(19).textContent = item.fields.minor_month_three;
+                    row.insertCell(20).textContent = item.fields.pack_one;
+                    row.insertCell(21).textContent = item.fields.pack_two;
+                    row.insertCell(22).textContent = item.fields.pack_three;
+
+                    Array.from(row.cells).forEach((cell, index) => {
+                        cell.classList.add('editable');
+                        
+                        // Add a data attribute to the cell for the index
+                        cell.setAttribute('data-index', cell.cellIndex);
+                        
+                        cell.addEventListener('click', () => {
+                            const oldValue = cell.textContent;
+                            const newValue = prompt(`Edit Cell ${cell.cellIndex} in Row ${row.rowIndex}:`, oldValue);
+                            if (newValue !== null) {
+                                cell.textContent = newValue;
+                                const columnIndex = parseInt(cell.getAttribute('data-index'), 10);
+                                const columnname = cell.offsetParent.children[0].children[0].children[columnIndex].innerHTML
+                                const rowId = row.getAttribute('data-id');
+                                const tableId = 'dataTable'
+                                sendEditToBackend(tableId ,rowId, columnIndex,columnname, newValue);
+                            }
+                        });
+                    });
+
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data1:', error);
+            });
+            
+            
+            
+            fetch('/get_selection_data/')
+                .then(response => response.json())
+                .then(data => {
+                    const jsonObject = JSON.parse(data);
+                    const dataArray = Object.values(jsonObject);
+                    const tableBody = document.getElementById('selectionTable').getElementsByTagName('tbody')[0];
+                    tableBody.innerHTML = ''; // Clear existing data
+                    // Use map to create rows for each item in the data array
+                    const headers = ['choice', 'item_en', 'item_fa', 'iden', 'line_c'];
+                    dataArray.map(item => {
+                        const row = tableBody.insertRow();
+                        // Add a data attribute to the row for the item id
+                        row.setAttribute('data-id', row.rowIndex);
+                        
+                        row.insertCell(0).textContent = item.fields.choice;
+                        row.insertCell(1).textContent = item.fields.item_en;
+                        row.insertCell(2).textContent = item.fields.item_fa;
+                        row.insertCell(3).textContent = item.fields.iden;
+                        row.insertCell(4).textContent = item.fields.line_c;
+                        
+                        Array.from(row.cells).forEach((cell, index) => {
+                        cell.classList.add('editable');
+                        
+                        // Add a data attribute to the cell for the index
+                        cell.setAttribute('data-index', cell.cellIndex);
+                        cell.addEventListener('click', () => {
+                            const oldValue = cell.textContent;
+                            const newValue = prompt(`Edit Cell ${cell.cellIndex} in Row ${row.rowIndex}:`, oldValue);
+                            if (newValue !== null) {
+                                cell.textContent = newValue;
+                                const columnIndex = parseInt(cell.getAttribute('data-index'), 10);
+                                const columnname = cell.offsetParent.children[0].children[0].children[columnIndex].innerHTML
+                                const rowId = row.getAttribute('data-id');
+                                const tableId = 'selectionTable'
+                                sendEditToBackend(tableId ,rowId, columnIndex, columnname, newValue);
+                            }
+                        });
+                    });
+
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data2:', error);
+                });
+    }
+    
+    // Function to send the edited data to the backend
+    function sendEditToBackend(tableId, rowId, columnIndex, columnname , value) {
+    const final = { 'tableId':tableId,'rowId':rowId, 'columnIndex':columnIndex,'columnname':columnname , 'value':value}
+    axios.defaults.xsrfHeaderName = "X-CSRFToken";
+    axios.defaults.xsrfCookieName = 'csrftoken';    
+    axios.post('/update_real_time_data/', {
+        final
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+        window.alert(error.response.data.message);
+    
+    })
+}
+    // Call the fetchData function every second
+    setInterval(fetchData, 1000);
+
+    // Call the fetchData function when the page loads
+    window.onload = fetchData;
+</script>
+
+</body>
+</html>

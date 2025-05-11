@@ -1,0 +1,7 @@
+LOAD DATABASE
+    FROM sqlite:///data/temp.db  -- SQLite URI format
+    INTO postgresql://root:6uBpaGiE11eNjTrzRT3AfJK8@taftan.liara.cloud:32750/postgres
+
+WITH include no drop, truncate, create tables, create indexes, reset sequences
+
+SET work_mem to '16MB', maintenance_work_mem to '512MB';

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>لیست سوابق</title>
+  {% load static %}
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style_member.css' %}">
+</head>
+
+<body>
+<div>
+<a href = "{% url 'index' %}"><button class = "btn btn-light">برگشت به صفحه اول</button></a>
+<br>
+
+<br>
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"><table id="dtBasicExample" class="table table-striped table-bordered table-sm dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="dtBasicExample_info" style="width: 100%;">
+  <thead>
+    <tr>
+      <th class="th-sm">نام و نام خانوادگی
+      </th>
+      <th class="th-sm">جنسیت
+      </th>
+      <th class="th-sm">زمان شروع
+      </th>
+      <th class="th-sm">زمان پایان
+      </th>
+      <th class="th-sm">لاین
+      </th>
+      <th class="th-sm">جراحی
+      </th>
+      <th class="th-sm">داخلی
+      </th>
+      <th class="th-sm">اطفال
+      </th>
+      <th class="th-sm">زنان
+      </th>
+      <th class="th-sm">ارتوپدی اول
+      </th>
+      <th class="th-sm">ارتوپدی دوم
+      </th>
+      <th class="th-sm">ارولوژی اول
+      </th>
+      <th class="th-sm">ارولوژی دوم
+      </th>
+      <th class="th-sm">بیهوشی - طب اورژانس - چشم اول 
+      </th>
+      <th class="th-sm">بیهوشی - طب اورژانس - چشم دوم
+      </th>
+      <th class="th-sm">بیهوشی - طب اورژانس - چشم سوم
+      </th>
+      <th class="th-sm">نورولوژی - روانپزشکی - عفونی اول
+      </th>
+      <th class="th-sm">نورولوژی - روانپزشکی - عفونی دوم
+      </th>
+      <th class="th-sm">نورولوژی - روانپزشکی - عفونی سوم
+      </th>
+      <th class="th-sm">بهداشت - پوست - ENT اول
+      </th>
+      <th class="th-sm">بهداشت - پوست - ENT دوم
+      </th>
+      <th class="th-sm">بهداشت - پوست - ENT سوم
+      </th>
+    </tr>
+  </thead>
+<tbody>
+{% for x in mymembers %}
+<tr>
+<td>{{ x.name }}</td>
+<td>{{ x.gender }}</td>
+<td>{{ x.start_time }}</td>
+<td>{{ x.end_time }}</td>
+<td>{{ x.line }}</td>
+<td>{{ x.surgery }}</td>
+<td>{{ x.internal }}</td>
+<td>{{ x.pediatrics }}</td>
+<td>{{ x.gynocology }}</td>
+<td>{{ x.ortopedix_one }}</td>
+<td>{{ x.ortopedix_two }}</td>
+<td>{{ x.urology_one }}</td>
+<td>{{ x.urology_two }}</td>
+<td>{{ x.minor_week_one }}</td>
+<td>{{ x.minor_week_two }}</td>
+<td>{{ x.minor_week_three }}</td>
+<td>{{ x.minor_month_one }}</td>
+<td>{{ x.minor_month_two }}</td>
+<td>{{ x.minor_month_three }}</td>
+<td>{{ x.pack_one }}</td>
+<td>{{ x.pack_two }}</td>
+<td>{{ x.pack_three }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<br><br>
+<a href = "{% url 'index' %}"><button class = "btn btn-light">برگشت به صفحه اول</button></a>
+<br><br>
+</div>
+<a href="#" class="top"></a>
+</body>
+</html>
+

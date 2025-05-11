@@ -1,0 +1,1150 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>انتخاب لاین</title>
+{% load static %}
+<link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">
+<style type="text/css">
+
+ 
+  html { font-family:Calibri, Arial, Helvetica, sans-serif; font-size:11pt; background-color:white }
+  a.comment-indicator:hover + div.comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em }
+  a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em }
+  div.comment { display:none }
+  table { border-collapse:collapse; page-break-after:always }
+  .gridlines td { border:1px dotted black }
+  .gridlines th { border:1px dotted black }
+  .b { text-align:center }
+  .e { text-align:center }
+  .f { text-align:right }
+  .inlineStr { text-align:left }
+  .n { text-align:right }
+  .s { text-align:left }
+
+/*display*/
+/*
+td.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white }
+      th.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white }
+      td.style1 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white }
+      th.style1 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white }
+      td.style2 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:white }
+      th.style2 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:white }
+      td.style3 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:12pt; background-color:white }
+      th.style3 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:12pt; background-color:white }
+      td.style4 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#45818E }
+      th.style4 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#45818E }
+      td.style5 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B6D7A8 }
+      th.style5 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B6D7A8 }
+      td.style6 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#DD7E6B }
+      th.style6 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#DD7E6B }
+      td.style7 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#F6B26B }
+      th.style7 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#F6B26B }
+      td.style8 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000 }
+      th.style8 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000 }
+      td.style9 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#93C47D }
+      th.style9 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#93C47D }
+      td.style10 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000 }
+      th.style10 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000 }
+      td.style11 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000 }
+      th.style11 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000 }
+      td.style12 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#F9CB9C }
+      th.style12 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#F9CB9C }
+      td.style13 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#D5A6BD }
+      th.style13 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#D5A6BD }
+      td.style14 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#CCECFF }
+      th.style14 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#CCECFF }
+      td.style15 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B7B7B7 }
+      th.style15 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B7B7B7 }
+      td.style16 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B4A7D6 }
+      th.style16 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B4A7D6 }
+      td.style17 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#6FA8DC }
+      th.style17 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#6FA8DC }
+      td.style18 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#EA9999 }
+      th.style18 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#EA9999 }
+      td.style19 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:12pt; background-color:white }
+      th.style19 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:12pt; background-color:white }
+      td.style20 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white }
+      th.style20 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white }
+*/
+
+/*display none*/
+ 
+td.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white; display:none }
+      th.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white; display:none }
+      td.style1 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white; display:none }
+      th.style1 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white; display:none }
+      td.style2 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:white; display:none }
+      th.style2 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:white; display:none }
+      td.style3 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:12pt; background-color:white; display:none }
+      th.style3 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:12pt; background-color:white; display:none }
+      td.style4 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#45818E; display:none }
+      th.style4 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#45818E; display:none }
+      td.style5 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B6D7A8; display:none }
+      th.style5 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B6D7A8; display:none }
+      td.style6 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#DD7E6B; display:none }
+      th.style6 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#DD7E6B; display:none }
+      td.style7 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#F6B26B; display:none }
+      th.style7 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#F6B26B; display:none }
+      td.style8 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000; display:none }
+      th.style8 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000; display:none }
+      td.style9 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#93C47D; display:none }
+      th.style9 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#93C47D; display:none }
+      td.style10 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000; display:none }
+      th.style10 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000; display:none }
+      td.style11 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000; display:none }
+      th.style11 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#BF9000; display:none }
+      td.style12 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#F9CB9C; display:none }
+      th.style12 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#F9CB9C; display:none }
+      td.style13 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#D5A6BD; display:none }
+      th.style13 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#D5A6BD; display:none }
+      td.style14 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#CCECFF; display:none }
+      th.style14 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#CCECFF; display:none }
+      td.style15 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B7B7B7; display:none }
+      th.style15 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B7B7B7; display:none }
+      td.style16 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B4A7D6; display:none }
+      th.style16 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#B4A7D6; display:none }
+      td.style17 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#6FA8DC; display:none }
+      th.style17 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#6FA8DC; display:none }
+      td.style18 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#EA9999; display:none }
+      th.style18 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:10pt; background-color:#EA9999; display:none }
+      td.style19 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:12pt; background-color:white; display:none }
+      th.style19 { vertical-align:middle; text-align:center; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; font-weight:bold; color:#000000; font-family:'Calibri'; font-size:12pt; background-color:white; display:none }
+      td.style20 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white; display:none }
+      th.style20 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:1px solid #000000 !important; border-left:1px solid #000000 !important; border-right:1px solid #000000 !important; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white; display:none }
+
+
+table.sheet0 col.col0 { width:42pt }
+      table.sheet0 col.col1 { width:74.5555547pt }
+      table.sheet0 col.col2 { width:74.5555547pt }
+      table.sheet0 col.col3 { width:74.5555547pt }
+      table.sheet0 col.col4 { width:74.5555547pt }
+      table.sheet0 col.col5 { width:74.5555547pt }
+      table.sheet0 col.col6 { width:74.5555547pt }
+      table.sheet0 col.col7 { width:74.5555547pt }
+      table.sheet0 col.col8 { width:74.5555547pt }
+      table.sheet0 col.col9 { width:74.5555547pt }
+      table.sheet0 col.col10 { width:74.5555547pt }
+      table.sheet0 col.col11 { width:74.5555547pt }
+      table.sheet0 col.col12 { width:74.5555547pt }
+      table.sheet0 col.col13 { width:74.5555547pt }
+      table.sheet0 col.col14 { width:74.5555547pt }
+      table.sheet0 col.col15 { width:74.5555547pt }
+      table.sheet0 col.col16 { width:74.5555547pt }
+      table.sheet0 col.col17 { width:74.5555547pt }
+      table.sheet0 col.col18 { width:74.5555547pt }
+      table.sheet0 col.col19 { width:74.5555547pt }
+      table.sheet0 col.col20 { width:74.5555547pt }
+      table.sheet0 col.col21 { width:74.5555547pt }
+      table.sheet0 col.col22 { width:74.5555547pt }
+      table.sheet0 col.col23 { width:74.5555547pt }
+      table.sheet0 col.col24 { width:74.5555547pt }
+      table.sheet0 col.col25 { width:74.5555547pt }
+      table.sheet0 col.col26 { width:74.5555547pt }
+      table.sheet0 col.col27 { width:74.5555547pt }
+      table.sheet0 col.col28 { width:74.5555547pt }
+      table.sheet0 col.col29 { width:74.5555547pt }
+      table.sheet0 col.col30 { width:74.5555547pt }
+      table.sheet0 col.col31 { width:74.5555547pt }
+      table.sheet0 col.col32 { width:74.5555547pt }
+      table.sheet0 col.col33 { width:74.5555547pt }
+      table.sheet0 col.col34 { width:74.5555547pt }
+      table.sheet0 col.col35 { width:74.5555547pt }
+      table.sheet0 col.col36 { width:74.5555547pt }
+      table.sheet0 tr { height:12.75pt }
+      table.sheet0 tr.row0 { height:15.6pt }
+      table.sheet0 tr.row1 { height:13.8pt }
+      table.sheet0 tr.row2 { height:13.8pt }
+      table.sheet0 tr.row3 { height:13.8pt }
+      table.sheet0 tr.row4 { height:13.8pt }
+      table.sheet0 tr.row5 { height:13.8pt }
+      table.sheet0 tr.row6 { height:13.8pt }
+      table.sheet0 tr.row7 { height:13.8pt }
+      table.sheet0 tr.row8 { height:13.8pt }
+      table.sheet0 tr.row9 { height:13.8pt }
+      table.sheet0 tr.row10 { height:13.8pt }
+      table.sheet0 tr.row11 { height:13.8pt }
+      table.sheet0 tr.row12 { height:13.8pt }
+      table.sheet0 tr.row13 { height:13.8pt }
+      table.sheet0 tr.row14 { height:13.8pt }
+      table.sheet0 tr.row15 { height:13.8pt }
+      table.sheet0 tr.row16 { height:13.8pt }
+      table.sheet0 tr.row17 { height:13.8pt }
+      table.sheet0 tr.row18 { height:13.8pt }
+      table.sheet0 tr.row19 { height:13.8pt }
+      table.sheet0 tr.row20 { height:13.8pt }
+      table.sheet0 tr.row21 { height:13.8pt }
+      table.sheet0 tr.row22 { height:13.8pt }
+      table.sheet0 tr.row23 { height:13.8pt }
+      table.sheet0 tr.row24 { height:13.8pt }
+      table.sheet0 tr.row25 { height:13.8pt }
+      table.sheet0 tr.row26 { height:13.8pt }
+      table.sheet0 tr.row27 { height:13.8pt }
+      table.sheet0 tr.row28 { height:13.8pt }
+      table.sheet0 tr.row29 { height:13.8pt }
+      table.sheet0 tr.row30 { height:13.8pt }
+      table.sheet0 tr.row31 { height:13.8pt }
+      table.sheet0 tr.row32 { height:13.8pt }
+      table.sheet0 tr.row33 { height:13.8pt }
+      table.sheet0 tr.row34 { height:13.8pt }
+      table.sheet0 tr.row35 { height:13.8pt }
+      table.sheet0 tr.row36 { height:13.8pt }
+
+table.stylet { display:none; z-index:1; position:absolute; background-color:#FFFFFF }
+
+body {
+  font-family: sans-serif;
+}
+
+.base-timer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+</style>
+       <meta charset="UTF-8">
+       <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+       <script src="https://unpkg.com/react-dom@^16/umd/react-dom.production.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.8/babel.js"></script>
+       <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+  <style>
+@page { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
+body { margin-left: 0.7in; margin-right: 0.7in; margin-top: 0.75in; margin-bottom: 0.75in; }
+  </style>
+  <div id="timerr"></div>
+  
+  <br>
+  
+    <br>
+    
+
+  <table class="table" width="150"> 
+  <thead>
+  <tr>
+  <th>شماره دانشجویی</th>
+  <th>نام و نام خانوادگی</th>
+  <th>جنسیت</th>
+  </tr>
+  </thead>
+     <tbody>
+             <tr>
+             <td>{{ user }}</td>
+             <td>{{ me.name }}</td>
+             <td>{{ me.gender }}</td>
+             </tr>
+     </tbody>
+      </table>
+            <br>
+
+        <br>
+  <div id="select_line"></div>
+ 
+ <div id="line_detail"></div>
+ 
+    <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
+      <col class="col0"/>
+      <col class="col1"/>
+      <col class="col2"/>
+      <col class="col3"/>
+      <col class="col4"/>
+      <col class="col5"/>
+      <col class="col6"/>
+      <col class="col7"/>
+      <col class="col8"/>
+      <col class="col9"/>
+      <col class="col10"/>
+      <col class="col11"/>
+      <col class="col12"/>
+      <col class="col13"/>
+      <col class="col14"/>
+      <col class="col15"/>
+      <col class="col16"/>
+      <col class="col17"/>
+      <col class="col18"/>
+      <col class="col19"/>
+      <col class="col20"/>
+      <col class="col21"/>
+      <col class="col22"/>
+      <col class="col23"/>
+      <col class="col24"/>
+      <col class="col25"/>
+      <col class="col26"/>
+      <col class="col27"/>
+      <col class="col28"/>
+      <col class="col29"/>
+      <col class="col30"/>
+      <col class="col31"/>
+      <col class="col32"/>
+      <col class="col33"/>
+      <col class="col34"/>
+      <col class="col35"/>
+      <col class="col36"/>
+      <div id="root"></div>
+ </table>
+ <div id="button"></div>
+      <script type="text/babel">
+      const { useState } = React
+var data_l = JSON.parse('{{ myline|escapejs }}');
+var final = [{}]
+
+const data_s = JSON.parse('{{ myselection|escapejs }}');
+
+
+var unit;
+var data_c = JSON.parse('{{ mycapacity|escapejs }}');
+
+function Detail(props){
+if (props.id != ""){
+var listOfObjects= ['t'+props.id,{'hospital':'هیچ کدام'}]
+
+for (var l, k = 0; k < data_c.length; k += 1) {
+
+  l = data_c[k]["unit"];
+  if (props.title === l && data_c[k]["remain"] > 0 && data_c[k]["hospital"]  != "All") {
+  if (data_c[k]["gender"] == "" || data_c[k]["gender"] == "{{ me.gender }}"){
+    listOfObjects.push(data_c[k])
+    }
+  }
+}
+} 
+if (listOfObjects == undefined || listOfObjects.length < 3){
+return(<span></span>)
+} else {
+var de = listOfObjects[0]
+return(
+<table id={de} class={'stylet'}>
+<tbody>
+    {listOfObjects.map((tab) => (
+        <tr>
+        <td>{tab.hospital}</td>
+        </tr>
+    ))}
+</tbody>
+</table>
+  )
+}
+
+}
+
+class App extends React.Component{
+constructor(props){
+  super(props)
+  // preserve the initial state in a new object
+  this.baseState = this.state 
+}
+resetForm = () => {
+    this.setState(this.baseState)
+  }
+render() {
+      return (   
+      <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
+        <col class="col0"/>
+        <col class="col1"/>
+        <col class="col2"/>
+        <col class="col3"/>
+        <col class="col4"/>
+        <col class="col5"/>
+        <col class="col6"/>
+        <col class="col7"/>
+        <col class="col8"/>
+        <col class="col9"/>
+        <col class="col10"/>
+        <col class="col11"/>
+        <col class="col12"/>
+        <col class="col13"/>
+        <col class="col14"/>
+        <col class="col15"/>
+        <col class="col16"/>
+        <col class="col17"/>
+        <col class="col18"/>
+        <col class="col19"/>
+        <col class="col20"/>
+        <col class="col21"/>
+        <col class="col22"/>
+        <col class="col23"/>
+        <col class="col24"/>
+        <col class="col25"/>
+        <col class="col26"/>
+        <col class="col27"/>
+        <col class="col28"/>
+        <col class="col29"/>
+        <col class="col30"/>
+        <col class="col31"/>
+        <col class="col32"/>
+        <col class="col33"/>
+        <col class="col34"/>
+        <col class="col35"/>
+        <col class="col36"/> 
+          <tbody>
+              {data_l.map((table) => (
+                  <tr class={table.class}>
+                  <td id={table.first?.id} title={table.first?.title} class={table.first?.class} colspan={table.first?.colspan} rowspan={table.first?.rowspan} hidden><div><Detail id={table.first?.id} title={table.first?.title}/><div><span>{table.first?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.second?.id} title={table.second?.title} class={table.second?.class} colspan={table.second?.colspan} rowspan={table.second?.rowspan} hidden><div><Detail id={table.second?.id} title={table.second?.title}/><div><span>{table.second?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.third?.id} title={table.third?.title} class={table.third?.class} colspan={table.third?.colspan} rowspan={table.third?.rowspan} hidden><div><Detail id={table.third?.id} title={table.third?.title}/><div><span>{table.third?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.forth?.id} title={table.forth?.title} class={table.forth?.class} colspan={table.forth?.colspan} rowspan={table.forth?.rowspan} hidden><div><Detail id={table.forth?.id} title={table.forth?.title}/><div><span>{table.forth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.fifth?.id} title={table.fifth?.title} class={table.fifth?.class} colspan={table.fifth?.colspan} rowspan={table.fifth?.rowspan} hidden><div><Detail id={table.fifth?.id} title={table.fifth?.title}/><div><span>{table.fifth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.sixth?.id} title={table.sixth?.title} class={table.sixth?.class} colspan={table.sixth?.colspan} rowspan={table.sixth?.rowspan} hidden><div><Detail id={table.sixth?.id} title={table.sixth?.title}/><div><span>{table.sixth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.seventh?.id} title={table.seventh?.title} class={table.seventh?.class} colspan={table.seventh?.colspan} rowspan={table.seventh?.rowspan} hidden><div><Detail id={table.seventh?.id} title={table.seventh?.title}/><div><span>{table.seventh?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.eighth?.id} title={table.eighth?.title} class={table.eighth?.class} colspan={table.eighth?.colspan} rowspan={table.eighth?.rowspan} hidden><div><Detail id={table.eighth?.id} title={table.eighth?.title}/><div><span>{table.eighth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.nineth?.id} title={table.nineth?.title} class={table.nineth?.class} colspan={table.nineth?.colspan} rowspan={table.nineth?.rowspan} hidden><div><Detail id={table.nineth?.id} title={table.nineth?.title}/><div><span>{table.nineth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.tenth?.id} title={table.tenth?.title} class={table.tenth?.class} colspan={table.tenth?.colspan} rowspan={table.tenth?.rowspan} hidden><div><Detail id={table.tenth?.id} title={table.tenth?.title}/><div><span>{table.tenth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.eleventh?.id} title={table.eleventh?.title} class={table.eleventh?.class} colspan={table.eleventh?.colspan} rowspan={table.eleventh?.rowspan} hidden><div><Detail id={table.eleventh?.id} title={table.eleventh?.title}/><div><span>{table.eleventh?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twelveth?.id} title={table.twelveth?.title} class={table.twelveth?.class} colspan={table.twelveth?.colspan} rowspan={table.twelveth?.rowspan} hidden><div><Detail id={table.twelveth?.id} title={table.twelveth?.title}/><div><span>{table.twelveth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirteenth?.id} title={table.thirteenth?.title} class={table.thirteenth?.class} colspan={table.thirteenth?.colspan} rowspan={table.thirteenth?.rowspan} hidden><div><Detail id={table.thirteenth?.id} title={table.thirteenth?.title}/><div><span>{table.thirteenth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.fourteenth?.id} title={table.fourteenth?.title} class={table.fourteenth?.class} colspan={table.fourteenth?.colspan} rowspan={table.fourteenth?.rowspan} hidden><div><Detail id={table.fourteenth?.id} title={table.fourteenth?.title}/><div><span>{table.fourteenth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.fifteenth?.id} title={table.fifteenth?.title} class={table.fifteenth?.class} colspan={table.fifteenth?.colspan} rowspan={table.fifteenth?.rowspan} hidden><div><Detail id={table.fifteenth?.id} title={table.fifteenth?.title}/><div><span>{table.fifteenth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.sixteenth?.id} title={table.sixteenth?.title} class={table.sixteenth?.class} colspan={table.sixteenth?.colspan} rowspan={table.sixteenth?.rowspan} hidden><div><Detail id={table.sixteenth?.id} title={table.sixteenth?.title}/><div><span>{table.sixteenth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.seventeenth?.id} title={table.seventeenth?.title} class={table.seventeenth?.class} colspan={table.seventeenth?.colspan} rowspan={table.seventeenth?.rowspan} hidden><div><Detail id={table.seventeenth?.id} title={table.seventeenth?.title}/><div><span>{table.seventeenth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.eighteenth?.id} title={table.eighteenth?.title} class={table.eighteenth?.class} colspan={table.eighteenth?.colspan} rowspan={table.eighteenth?.rowspan} hidden><div><Detail id={table.eighteenth?.id} title={table.eighteenth?.title}/><div><span>{table.eighteenth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.nineteenth?.id} title={table.nineteenth?.title} class={table.nineteenth?.class} colspan={table.nineteenth?.colspan} rowspan={table.nineteenth?.rowspan} hidden><div><Detail id={table.nineteenth?.id} title={table.nineteenth?.title}/><div><span>{table.nineteenth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentieth?.id} title={table.twentieth?.title} class={table.twentieth?.class} colspan={table.twentieth?.colspan} rowspan={table.twentieth?.rowspan} hidden><div><Detail id={table.twentieth?.id} title={table.twentieth?.title}/><div><span>{table.twentieth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentyfirst?.id} title={table.twentyfirst?.title} class={table.twentyfirst?.class} colspan={table.twentyfirst?.colspan} rowspan={table.twentyfirst?.rowspan} hidden><div><Detail id={table.twentyfirst?.id} title={table.twentyfirst?.title}/><div><span>{table.twentyfirst?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentysecond?.id} title={table.twentysecond?.title} class={table.twentysecond?.class} colspan={table.twentysecond?.colspan} rowspan={table.twentysecond?.rowspan} hidden><div><Detail id={table.twentysecond?.id} title={table.twentysecond?.title}/><div><span>{table.twentysecond?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentythird?.id} title={table.twentythird?.title} class={table.twentythird?.class} colspan={table.twentythird?.colspan} rowspan={table.twentythird?.rowspan} hidden ><div><Detail id={table.twentythird?.id} title={table.twentythird?.title}/><div><span>{table.twentythird?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentyfourth?.id} title={table.twentyfourth?.title} class={table.twentyfourth?.class} colspan={table.twentyfourth?.colspan} rowspan={table.twentyfourth?.rowspan} hidden><div><Detail id={table.twentyfourth?.id} title={table.twentyfourth?.title}/><div><span>{table.twentyfourth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentyfifth?.id} title={table.twentyfifth?.title} class={table.twentyfifth?.class} colspan={table.twentyfifth?.colspan} rowspan={table.twentyfifth?.rowspan} hidden><div><Detail id={table.twentyfifth?.id} title={table.twentyfifth?.title}/><div><span>{table.twentyfifth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentysixth?.id} title={table.twentysixth?.title} class={table.twentysixth?.class} colspan={table.twentysixth?.colspan} rowspan={table.twentysixth?.rowspan} hidden><div><Detail id={table.twentysixth?.id} title={table.twentysixth?.title}/><div><span>{table.twentysixth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentyseventh?.id} title={table.twentyseventh?.title} class={table.twentyseventh?.class} colspan={table.twentyseventh?.colspan} rowspan={table.twentyseventh?.rowspan} hidden><div><Detail id={table.twentyseventh?.id} title={table.twentyseventh?.title}/><div><span>{table.twentyseventh?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentyeighth?.id} title={table.twentyeighth?.title} class={table.twentyeighth?.class} colspan={table.twentyeighth?.colspan} rowspan={table.twentyeighth?.rowspan} hidden><div><Detail id={table.twentyeighth?.id} title={table.twentyeighth?.title}/><div><span>{table.twentyeighth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.twentyninth?.id} title={table.twentyninth?.title} class={table.twentyninth?.class} colspan={table.twentyninth?.colspan} rowspan={table.twentyninth?.rowspan} hidden><div><Detail id={table.twentyninth?.id} title={table.twentyninth?.title}/><div><span>{table.twentyninth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirtieth?.id} title={table.thirtieth?.title} class={table.thirtieth?.class} colspan={table.thirtieth?.colspan} rowspan={table.thirtieth?.rowspan} hidden><div><Detail id={table.thirtieth?.id} title={table.thirtieth?.title}/><div><span>{table.thirtieth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirtyfirst?.id} title={table.thirtyfirst?.title} class={table.thirtyfirst?.class} colspan={table.thirtyfirst?.colspan} rowspan={table.thirtyfirst?.rowspan} hidden><div><Detail id={table.thirtyfirst?.id} title={table.thirtyfirst?.title}/><div><span>{table.thirtyfirst?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirtysecond?.id} title={table.thirtysecond?.title} class={table.thirtysecond?.class} colspan={table.thirtysecond?.colspan} rowspan={table.thirtysecond?.rowspan} hidden><div><Detail id={table.thirtysecond?.id} title={table.thirtysecond?.title}/><div><span>{table.thirtysecond?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirtythird?.id} title={table.thirtythird?.title} class={table.thirtythird?.class} colspan={table.thirtythird?.colspan} rowspan={table.thirtythird?.rowspan} hidden><div><Detail id={table.thirtythird?.id} title={table.thirtythird?.title}/><div><span>{table.thirtythird?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirtyfourth?.id} title={table.thirtyfourth?.title} class={table.thirtyfourth?.class} colspan={table.thirtyfourth?.colspan} rowspan={table.thirtyfourth?.rowspan} hidden><div><Detail id={table.thirtyfourth?.id} title={table.thirtyfourth?.title}/><div><span>{table.thirtyfourth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirtyfifth?.id} title={table.thirtyfifth?.title} class={table.thirtyfifth?.class} colspan={table.thirtyfifth?.colspan} rowspan={table.thirtyfifth?.rowspan} hidden><div><Detail id={table.thirtyfifth?.id} title={table.thirtyfifth?.title}/><div><span>{table.thirtyfifth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirtysixth?.id} title={table.thirtysixth?.title} class={table.thirtysixth?.class} colspan={table.thirtysixth?.colspan} rowspan={table.thirtysixth?.rowspan} hidden><div><Detail id={table.thirtysixth?.id} title={table.thirtysixth?.title}/><div><span>{table.thirtysixth?.content}</span><div><span></span></div></div></div></td>
+                  <td id={table.thirtyseventh?.id} title={table.thirtyseventh?.title} class={table.thirtyseventh?.class} colspan={table.thirtyseventh?.colspan} rowspan={table.thirtyseventh?.rowspan} hidden><div><Detail id={table.thirtyseventh?.id} title={table.thirtyseventh?.title}/><div><span>{table.thirtyseventh?.content}</span><div><span></span></div></div></div></td>
+                  </tr>
+              ))}
+          </tbody>
+          </table>
+      )
+}  
+}
+ReactDOM.render(
+  <App/>,
+  document.getElementById("root")
+)
+
+
+ 
+ var listOflines = []
+ var array = ["لطفا لاین مورد نظر را انتخاب کنید"]
+ for (var i = 0 ; i < data_c.length; i += 1) {
+ if (data_c[i]["hospital"] == "All"){
+ listOflines.push(data_c[i])
+ if (data_c[i]["remain"] > 0){
+ array.push(data_c[i]["line"])
+ }
+ }
+ else {var nothing = "a"}
+ }
+
+ 
+const Appl = () => {
+    const [tables, setTables] = useState(listOflines);
+      return (  
+       <table class="table table-striped" >
+       <thead>
+       <tr>
+       <th>لاین</th>
+       <th>ظرفیت کل</th>
+       <th>ظرفیت باقی مانده</th>
+       </tr>
+       </thead>
+      
+          <tbody>
+              {tables.map((table) => (
+                  <tr>
+                  <td>{table.line}</td>
+                  <td>{table.full}</td>
+                  <td>{table.remain}</td>
+                  </tr>
+              ))}
+          </tbody>
+           </table>
+      )
+}  
+ReactDOM.render(
+  <Appl/>,
+  document.getElementById("line_detail")
+)
+
+
+  try {
+        for (var i = 1 ; i < 1000; i += 1) {
+          document.getElementById(i).addEventListener('click', clicked);
+        }
+  }
+  catch(err) {
+    console.log(i)
+  }
+
+ 
+window.onload = function(){
+let a = 'a';
+let b = 'b';
+var sessionkey = [{a,b}]
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
+axios.defaults.xsrfCookieName = 'csrftoken';    
+axios.post('selected/', {
+    sessionkey
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+    if (error.response.data.message != "شخص دیگری وارد اکانت شما شده، مجددا وارد شوید"){error.response.data.message = "خطایی در ارتباط با سرور رخ داده، مجددا وارد شوید"}
+    window.alert(error.response.data.message);
+    window.location.href = "{% url 'index' %}";
+  });
+
+if (data_s.length>2){
+if (data_s[0].fields.choice = {{ user }}){
+let num = 2
+while(num < data_s.length ){
+let e = {"srcElement":{"firstChild":{"offsetParent":"null"},"parentElement":{"parentElement":{"parentElement":{"nextSibling":{"lastElementChild":{"firstElementChild":{"innerHTML":""}}},"parentElement":{"parentElement":{"classList":[data_s[num].fields.line_c,],"id":data_s[num].fields.iden,"firstChild":{"lastElementChild":{"firstChild":{"innerText":data_s[num].fields.item_fa}}}}}}}}},"target":{"innerHTML":data_s[num].fields.choice}}
+window.addEventListener('load', clicked(e));
+num = num + 1
+}
+}
+}
+}
+
+function getElementsByText(word) {
+    var res = []
+    var elems = [...document.getElementsByTagName('td')];
+    elems.forEach((elem) => { 
+        if(elem.outerHTML.includes(word)) {
+            res.push(elem)
+        }
+    })
+    return(res)
+}
+
+
+function clicked(e) {
+    var DetailTable = document.getElementsByClassName('stylet')
+    for (var i of DetailTable) {
+        i.style.display = "none";
+    }
+    var ev = e.srcElement.firstChild.offsetParent
+    if (ev == undefined) {
+        ev = e.srcElement.firstChild.parentElement.offsetParent
+    }
+
+    if (ev == null || ev == "null") {
+        var a = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.firstChild.lastElementChild.firstChild.innerText
+        var b = e.target.innerHTML
+        var x = "ok"
+        if (b == "هیچ کدام") {
+            b = ""
+        } else if (b == "هیچ کدامم") {
+         b = ""
+         x = "cancel"
+        }
+        var c = e.srcElement.parentElement.parentElement.parentElement.nextSibling.lastElementChild.firstElementChild.innerHTML
+        if (c == "هیچ کدام") {
+            c = ""
+        }
+        var i = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.id
+        var line_c = e.srcElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList[0]
+        var form = "none"
+        if (a.includes("ارولوژی") || a.includes("ارتوپدی")) {
+            
+            if (a.includes("ارتوپدی")) {
+                var aa_1 = a.replace("ارتوپدی", "ارولوژی");
+            } else {
+                var aa_1 = a.replace("ارولوژی", "ارتوپدی");
+            }
+            if (a.includes("دوم")) {
+                var aa_2 = a.replace("دوم", "اول");
+            } else {
+                var aa_2 = a.replace("اول", "دوم");
+            }
+            if (aa_1.includes("دوم")) {
+                var aa_3 = aa_1.replace("دوم", "اول");
+            } else {
+                var aa_3 = aa_1.replace("اول", "دوم");
+            }
+            if (b == "") {
+                for (var ii of getElementsByText(aa_3)) {
+                    if (ii.classList[0] == line_c) {
+                        var i_rep = ii
+                    }
+                }
+                if (i_rep.lastElementChild.lastElementChild.lastElementChild.innerText == "") {
+                    form = "table-cell"
+                } else {
+                    form = "none"
+                }
+            }
+
+            if ((Number(line_c.replace('column', ''))) % 4 == 0) {
+                var line_num = Number(line_c.replace('column', '')) - 2
+            } else {
+                var line_num = Number(line_c.replace('column', '')) + 2
+            }
+            var line_cc = "column" + line_num
+
+            for (var ii of getElementsByText(aa_1)) {
+                if (ii.classList[0] == line_cc) {
+                    ii.style.display = form;
+                }
+            }
+            for (var ii of getElementsByText(aa_2)) {
+                if (ii.classList[0] == line_cc) {
+                    ii.style.display = form;
+                }
+            }
+        }
+        var listofpack = ["نورولوژی/روانپزشکی/عفونی", "بهداشت", "بیهوشی"]
+        for (var iii of listofpack) {
+            if (a.includes(iii)) {
+                for (var ii of getElementsByText(iii)) {
+                    if (ii.classList[0] == line_c) {
+                        var choose = b.split(' ')[0]
+                        if (choose == "طب") {
+                            choose = "طب اورژانس"
+                        }
+                        var pack_id = "t" + ii.id
+                        var revert = []
+                        if (c != "") {
+                            if (c.split(' ')[0] == "طب") {
+                                revert.push("طب اورژانس")
+                            } else {
+                                revert.push(c.split(' ')[0])
+                            }
+                        }
+                        if (b == "") {
+                            form = "table-cell"
+                            choose = "هیچ کدام"
+                        } else {
+                            form = "none"
+                        }
+                        try {
+                            for (var tr of document.getElementById(pack_id).firstChild.children) {
+                                if (tr.firstChild.innerHTML.includes(choose)) {
+                                    tr.firstChild.style.display = form;
+                                }
+                                if (tr.firstChild.innerHTML.includes(revert[0])) {
+                                    tr.firstChild.style.display = "table-cell";
+                                }
+                            }
+                        } catch (err) {
+                            console.log(err.name)
+                        }
+                    }
+                }
+            }
+        }
+
+
+        let a_1 = a.replace('جراحی', 'surgery');
+        let a_2 = a_1.replace('داخلی', 'internal');
+        let a_3 = a_2.replace('کودکان', 'pediatrics');
+        let a_4 = a_3.replace('زنان', 'gynocology');
+        let a_5 = a_4.replace('ارتوپدی', 'orthopedix');
+        let a_6 = a_5.replace('قلب', 'cardiology');
+        let a_7 = a_6.replace('اورژانس', 'emergency');
+        let a_8 = a_7.replace('الکتیو', 'elective');
+        let a_9 = a_8.replace('اول', 'one');
+        let a_10 = a_9.replace('دوم', 'two');
+        let a_11 = a_10.replace('سوم', 'three');
+        let d = a_11.replace('-', '_');
+
+        var sel = [{
+            a,
+            b,
+            c,
+            d,
+            i,
+            line_c
+        }]
+        if (x == "cancel"){
+        console.log('line change')
+        } else{
+        axios.defaults.xsrfHeaderName = "X-CSRFToken";
+        axios.defaults.xsrfCookieName = 'csrftoken';
+        axios.post('selected/', {
+                sel
+            })
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.log(error);
+                if (error.response.data.message != "شخص دیگری وارد اکانت شما شده، مجددا وارد شوید") {
+                    error.response.data.message = "خطایی در ارتباط با سرور رخ داده، مجددا وارد شوید"
+                }
+                window.alert(error.response.data.message);
+                window.location.href = "{% url 'index' %}";
+
+            });
+            }
+        document.getElementById(i).firstElementChild.lastElementChild.lastElementChild.firstElementChild.innerHTML = b
+
+    } else {
+        var id = "t" + ev['id']
+        document.getElementById(id).style.display = "table";
+    }
+
+
+
+
+}
+
+function Packshow(element){
+let e = {"srcElement":{"firstChild":{"offsetParent":"null"},"parentElement":{"parentElement":{"parentElement":{"nextSibling":{"lastElementChild":{"firstElementChild":{"innerHTML":element.firstChild.lastChild.lastChild.firstChild.innerHTML}}},"parentElement":{"parentElement":{"classList":element.classList,"id":element.id,"firstChild":{"lastElementChild":{"firstChild":{"innerText":element.firstChild.lastChild.firstChild.innerHTML}}}}}}}}},"target":{"innerHTML":"هیچ کدامم"}}
+clicked(e)
+}
+
+
+ class ControlledSelect extends React.Component{ 
+     constructor(props){
+         super(props)
+         this.state = {value: 'لطفا لاین مورد نظر را انتخاب کنید'}
+         this.handleChange = this.handleChange.bind(this)
+     }
+     componentDidMount(){
+     if (data_s.length>1){
+     if (data_s[0].fields.choice = {{ user }}){
+     let event = {"target":{"value":data_s[1].fields.choice}}
+     window.addEventListener('load', this.handleChange(event));
+     }
+     }
+     }
+
+       handleChange(event){
+          for (var i = 0 ; i < 37 ; i += 1) {
+          var column = "column"+i
+          var list = document.getElementsByClassName(column)
+          var listofpack = ["نورولوژی/روانپزشکی/عفونی","بهداشت","بیهوشی"]
+          for (var k = 0; k < list.length ; k += 1){
+          if (document.getElementsByClassName(column)[k].getElementsByTagName('span').length == 2){
+          if (document.getElementsByClassName(column)[k].getElementsByTagName('span')[1].innerHTML != ''){
+          for (var pack of listofpack){
+          if(document.getElementsByClassName(column)[k].firstChild.lastChild.firstChild.innerHTML.includes(pack)){Packshow(document.getElementsByClassName(column)[k])}
+          }
+          document.getElementsByClassName(column)[k].getElementsByTagName('span')[1].innerHTML = ''
+          }
+          }
+          document.getElementsByClassName(column)[k].style.display = "none";
+          }
+          document.getElementById("line_detail").style.display = "none";
+          }
+          if (event.target.value == '1A'){
+          final = [{'line':'1A'}];
+          var n = [0,1];
+          } else if (event.target.value == '1B'){
+          final = [{'line':'1B'}];
+          var n = [0,2];
+          }else if (event.target.value == '2A'){
+          final = [{'line':'2A'}];
+          var n = [0,3];
+          }else if (event.target.value == '2B'){
+          final = [{'line':'2B'}];
+          var n = [0,4];
+          } else if (event.target.value == '3A'){
+          final = [{'line':'3A'}];
+          var n = [0,5];
+          }else if (event.target.value == '3B'){
+          final = [{'line':'3B'}];
+          var n = [0,6];
+          }else if (event.target.value == '4A'){
+          final = [{'line':'4A'}];
+          var n = [0,7];
+          }else if (event.target.value == '4B'){
+          final = [{'line':'4B'}];
+          var n = [0,8];
+          }else if (event.target.value == '5A'){
+          final = [{'line':'5A'}];
+          var n = [0,9];
+          }else if (event.target.value == '5B'){
+          final = [{'line':'5B'}];
+          var n = [0,10];
+          }else if (event.target.value == '6A'){
+          final = [{'line':'6A'}];
+          var n = [0,11];
+          }else if (event.target.value == '6B'){
+          final = [{'line':'6B'}];
+          var n = [0,12];
+          }else if (event.target.value == '7A'){
+          final = [{'line':'7A'}];
+          var n = [0,13];
+          }else if (event.target.value == '7B'){
+          final = [{'line':'7B'}];
+          var n = [0,14];
+          }else if (event.target.value == '8A'){
+          final = [{'line':'8A'}];
+          var n = [0,15];
+          }else if (event.target.value == '8B'){
+          final = [{'line':'8B'}];
+          var n = [0,16];
+          }else if (event.target.value == '9A'){
+          final = [{'line':'9A'}];
+          var n = [0,17];
+          }else if (event.target.value == '9B'){
+          final = [{'line':'9B'}];
+          var n = [0,18];
+          }else if (event.target.value == '10A'){
+          final = [{'line':'10A'}];
+          var n = [0,19];
+          }else if (event.target.value == '10B'){
+          final = [{'line':'10B'}];
+          var n = [0,20];
+          }else if (event.target.value == '11A'){
+          final = [{'line':'11A'}];
+          var n = [0,21];
+          }else if (event.target.value == '11B'){
+          final = [{'line':'11B'}];
+          var n = [0,22];
+          }else if (event.target.value == '12A'){
+          final = [{'line':'12A'}];
+          var n = [0,23];
+          }else if (event.target.value == '12B'){
+          final = [{'line':'12B'}];
+          var n = [0,24];
+          }else if (event.target.value == '13A'){
+          final = [{'line':'13A'}];
+          var n = [0,25];
+          }else if (event.target.value == '13B'){
+          final = [{'line':'13B'}];
+          var n = [0,26];
+          }else if (event.target.value == '14A'){
+          final = [{'line':'14A'}];
+          var n = [0,27];
+          }else if (event.target.value == '14B'){
+          final = [{'line':'14B'}];
+          var n = [0,28];
+          }else if (event.target.value == '15A'){
+          final = [{'line':'15A'}];
+          var n = [0,29];
+          }else if (event.target.value == '15B'){ 
+          final = [{'line':'15B'}];
+          var n = [0,30];
+          }else if (event.target.value == '16A'){
+          final = [{'line':'16A'}];
+          var n = [0,31];
+          }else if (event.target.value == '16B'){
+          final = [{'line':'16B'}];
+          var n = [0,32];
+          }else if (event.target.value == '17A'){
+          final = [{'line':'17A'}];
+          var n = [0,33];
+          }else if (event.target.value == '17B'){
+          final = [{'line':'17B'}];
+          var n = [0,34];
+          }else if (event.target.value == '18A'){
+          final = [{'line':'18A'}];
+          var n = [0,35];
+          }else if (event.target.value == '18B'){
+          final = [{'line':'18B'}];
+          var n = [0,36];
+          } else{
+          final = [{'line':'N'}];
+          var n = [];
+          document.getElementById("line_detail").style.display = "table"; }
+          axios.defaults.xsrfHeaderName = "X-CSRFToken";
+          axios.defaults.xsrfCookieName = 'csrftoken';    
+          axios.post('selected/', {
+              final
+            })
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+              if (error.response.data.message != "شخص دیگری وارد اکانت شما شده، مجددا وارد شوید"){error.response.data.message = "خطایی در ارتباط با سرور رخ داده، مجددا وارد شوید"}
+              window.alert(error.response.data.message);
+              window.location.href = "{% url 'index' %}";
+            });
+          for (var i of n){
+          var column = "column"+i
+          var list = document.getElementsByClassName(column)
+          for (var k = 0; k < list.length ; k += 1){
+          document.getElementsByClassName(column)[k].style.display = "table-cell";
+          }
+          }  
+           this.setState({value:event.target.value})
+       }
+     render(){
+         var options = array.map( (item) =>
+             <option value = {item}>{item}</option>
+         )
+         return (
+
+           <select value={this.state.value} onChange={this.handleChange} onload={this.before}>
+             {options}
+           </select>
+           
+         )
+     }
+ } 
+ ReactDOM.render(
+   <ControlledSelect/>,
+   document.getElementById('select_line')
+ )
+ 
+ 
+
+ try {
+for (var i = 1 ; i < 1000; i += 1) {
+  unit = document.getElementById(i).title;
+ var listOfObjects = []
+  for (var l, k = 0; k < data_c.length; k += 1) {
+     
+    l = data_c[k]["unit"];
+    if (unit === l) {
+      let bimarestan = data_c[k]["hospital"];
+      let baghimande = data_c[k]["remain"];
+      let kol = data_c[k]["full"];
+      if (listOfObjects.length>0){
+      listOfObjects.push("\n")
+       listOfObjects.push(`${bimarestan}:  ${baghimande} از ${kol}`);
+       } else { var listOfObjects = [`${bimarestan}:  ${baghimande} از ${kol}`];}
+    }
+  }
+  document.getElementById(i).title = listOfObjects;
+}
+  }
+  catch(err) {
+    console.log(i)
+  }
+
+
+function Component() {
+    
+  function handleClick() {
+window.location.href = "{% url 'loggedout_manual' %}";
+
+}   
+  return (
+    <div onClick={handleClick} style={{
+      textAlign: 'center',
+      width: '100px',
+      border: '1px solid gray',
+      borderRadius: '5px'
+    }}>
+      ثبت نهایی
+    </div>
+  );
+
+}
+
+
+
+ReactDOM.render(
+    <Component/>,
+    document.getElementById("button")
+)
+
+
+	const FULL_DASH_ARRAY = 283;
+	const WARNING_THRESHOLD = 10;
+	const ALERT_THRESHOLD = 5;
+
+	const COLOR_CODES = {
+	  info: {
+	    color: "green"
+	  },
+	  warning: {
+	    color: "orange",
+	    threshold: WARNING_THRESHOLD
+	  },
+	  alert: {
+	    color: "red",
+	    threshold: ALERT_THRESHOLD
+	  }
+	};
+	var now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Tehran' })
+	var now_t= new Date("{{ me.start_time }}").getTime();
+	var now_n= new Date("{{ me.end_time }}").getTime();
+
+	var TIME_LIMIT = (now_n - now_t)/1000;
+	let timePassed = 0;
+	let timeLeft = TIME_LIMIT;
+	let timerInterval = null;
+	let remainingPathColor = COLOR_CODES.info.color;
+
+	document.getElementById("timerr").innerHTML = `
+	<div class="base-timer">
+	  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+	    <g class="base-timer__circle">
+	      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+	      <path
+	        id="base-timer-path-remaining"
+	        stroke-dasharray="283"
+	        class="base-timer__path-remaining ${remainingPathColor}"
+	        d="
+	          M 50, 50
+	          m -45, 0
+	          a 45,45 0 1,0 90,0
+	          a 45,45 0 1,0 -90,0
+	        "
+	      ></path>
+	    </g>
+	  </svg>
+	  <span id="base-timer-label" class="base-timer__label">${formatTime(
+	    timeLeft
+	  )}</span>
+	</div>
+	`;
+
+	startTimer();
+
+	function onTimesUp() {
+	  clearInterval(timerInterval);
+	}
+
+	function startTimer() {
+	  timerInterval = setInterval(() => {
+	    now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Tehran' })
+        now_t= new Date(now).getTime();
+        now_n= new Date("{{ me.end_time }}").getTime();
+        timeLeft = (now_n - now_t)/1000;
+        timePassed = timePassed += 1;
+	    document.getElementById("base-timer-label").innerHTML = formatTime(
+	      timeLeft
+	    );
+	    setCircleDasharray();
+	    setRemainingPathColor(timeLeft);
+
+	    if (timeLeft <= 0) {
+	      window.location.href = "{% url 'index' %}";
+	    }
+	  }, 1000);
+	}
+
+	function formatTime(time) {
+	  const minutes = Math.floor(time / 60);
+	  let seconds = time % 60;
+
+	  if (seconds < 10) {
+	    seconds = `0${seconds}`;
+	  }
+
+	  return `${minutes}:${seconds}`;
+	}
+
+	function setRemainingPathColor(timeLeft) {
+	  const { alert, warning, info } = COLOR_CODES;
+	  if (timeLeft <= alert.threshold) {
+	    document
+	      .getElementById("base-timer-path-remaining")
+	      .classList.remove(warning.color);
+	    document
+	      .getElementById("base-timer-path-remaining")
+	      .classList.add(alert.color);
+	  } else if (timeLeft <= warning.threshold) {
+	    document
+	      .getElementById("base-timer-path-remaining")
+	      .classList.remove(info.color);
+	    document
+	      .getElementById("base-timer-path-remaining")
+	      .classList.add(warning.color);
+	  }
+	}
+
+	function calculateTimeFraction() {
+	  const rawTimeFraction = timeLeft / TIME_LIMIT;
+	  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+	}
+
+	function setCircleDasharray() {
+	  const circleDasharray = `${(
+
+
+	    calculateTimeFraction() * FULL_DASH_ARRAY
+	  ).toFixed(0)} 283`;
+	  document
+	    .getElementById("base-timer-path-remaining")
+	    .setAttribute("stroke-dasharray", circleDasharray);
+	}
+
+	function concurrentlogins() {
+	  let concurrentlogin = setInterval(() => {
+	    let a = 'a';
+        let b = 'b';
+        var sessionkey = [{a,b}]
+        axios.defaults.xsrfHeaderName = "X-CSRFToken";
+        axios.defaults.xsrfCookieName = 'csrftoken';    
+        axios.post('concurrentlogincheck/', {
+            sessionkey
+          })
+          .then(function (response) {
+            let a = 'a';
+          })
+          .catch(function (error) {
+            console.log(error);
+            if (error.response.data.message == "شخص دیگری وارد اکانت شما شده، مجددا وارد شوید"){
+            window.alert(error.response.data.message);
+            window.location.href = "{% url 'index' %}";
+            } 
+            
+          });
+
+
+	  }, 1000);
+	}
+	concurrentlogins()
+
+ </script>
+  </body>
+</html>

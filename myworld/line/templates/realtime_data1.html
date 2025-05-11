@@ -1,0 +1,159 @@
+<!-- realtimedata/templates/realtime_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Data</title>
+    <meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">
+ <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+   <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <h1>Real-Time Data:</h1>
+    
+<div id="rael_time_table"></div>
+
+
+
+
+    <h2>Edit Real-Time Data:</h2>
+    <label for="num-input">Num:</label>
+    <input type="text" id="num-input"><br>
+    <label for="name-input">Name:</label>
+    <input type="text" id="name-input"><br>
+    <label for="gender-input">Gender:</label>
+    <input type="text" id="gender-input"><br>
+    <label for="start-time-input">Start Time:</label>
+    <input type="text" id="start-time-input"><br>
+    <label for="end-time-input">End Time:</label>
+    <input type="text" id="end-time-input"><br>
+    <label for="line-input">Line:</label>
+    <input type="text" id="line-input"><br>
+    <label for="surgery-input">Surgery:</label>
+    <input type="text" id="surgery-input"><br>
+    <label for="internal-input">Internal:</label>
+    <input type="text" id="internal-input"><br>
+    <label for="pediatrics-input">Pediatrics:</label>
+    <input type="text" id="pediatrics-input"><br>
+    <label for="gynocology-input">Gynocology:</label>
+    <input type="text" id="gynocology-input"><br>
+    <!-- Add more input fields for other columns as needed -->
+    
+    <button onclick="updateData()">Update</button>
+
+    <script type="text/babel">
+
+    function fetchData() {
+  fetch('/get_real_time_data/')
+    .then(response => response.json())
+    .then(data => {
+    const jsonObject = JSON.parse(data);
+    const dataArray = Object.values(jsonObject);
+      const Tabelizer = ({ data }) => {
+        return (
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"><table id="dtBasicExample" class="table table-striped table-bordered table-sm dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="dtBasicExample_info" style="width: 100%;">
+      <thead>
+        <tr>
+          <th class="th-sm">نوبت
+          </th>
+          <th class="th-sm">نام و نام خانوادگی
+          </th>
+          <th class="th-sm">جنسیت
+          </th>
+          <th class="th-sm">زمان شروع
+          </th>
+          <th class="th-sm">زمان پایان
+          </th>
+          <th class="th-sm">لاین
+          </th>
+          <th class="th-sm">جراحی
+          </th>
+          <th class="th-sm">داخلی
+          </th>
+          <th class="th-sm">اطفال
+          </th>
+          <th class="th-sm">زنان
+          </th>
+          <th class="th-sm">ارتوپدی اول
+          </th>
+          <th class="th-sm">ارتوپدی دوم
+          </th>
+          <th class="th-sm">ارولوژی اول
+          </th>
+          <th class="th-sm">ارولوژی دوم
+          </th>
+          <th class="th-sm">بیهوشی - طب اورژانس - چشم اول 
+          </th>
+          <th class="th-sm">بیهوشی - طب اورژانس - چشم دوم
+          </th>
+          <th class="th-sm">بیهوشی - طب اورژانس - چشم سوم
+          </th>
+          <th class="th-sm">نورولوژی - روانپزشکی - عفونی اول
+          </th>
+          <th class="th-sm">نورولوژی - روانپزشکی - عفونی دوم
+          </th>
+          <th class="th-sm">نورولوژی - روانپزشکی - عفونی سوم
+          </th>
+          <th class="th-sm">بهداشت - پوست - ENT اول
+          </th>
+          <th class="th-sm">بهداشت - پوست - ENT دوم
+          </th>
+          <th class="th-sm">بهداشت - پوست - ENT سوم
+          </th>
+        </tr>
+      </thead>
+            <tbody>
+              {data.map(table => (
+                <tr key={table.id}>
+                  <td>{table.fields.num}</td>
+                  <td>{table.fields.name}</td>
+                  <td>{table.gender}</td>
+                  <td>{table.start_time}</td>
+                  <td>{table.end_time}</td>
+                  <td>{table.line}</td>
+                  <td>{table.surgery}</td>
+                  <td>{table.internal}</td>
+                  <td>{table.pediatrics}</td>
+                  <td>{table.gynocology}</td>
+                  <td>{table.ortopedix_one}</td>
+                  <td>{table.ortopedix_two}</td>
+                  <td>{table.urology_one}</td>
+                  <td>{table.urology_two}</td>
+                  <td>{table.minor_week_one}</td>
+                  <td>{table.minor_week_two}</td>
+                  <td>{table.minor_week_three}</td>
+                  <td>{table.minor_month_one}</td>
+                  <td>{table.minor_month_two}</td>
+                  <td>{table.minor_month_three}</td>
+                  <td>{table.pack_one}</td>
+                  <td>{table.pack_two}</td>
+                  <td>{table.pack_three}</td>
+                </tr>
+              ))}
+            </tbody>
+            </table>
+        );
+      };
+
+      ReactDOM.render(<Tabelizer data={dataArray} />, document.getElementById("rael_time_table"));
+    })
+    .catch(error => console.error(error));
+}
+
+        
+
+        // Fetch initial data and update it every 1 second
+        fetchData();
+        
+    </script>
+    
+    
+</body>
+</html>

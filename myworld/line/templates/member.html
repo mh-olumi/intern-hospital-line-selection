@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>لیست سوابق</title>
+  {% load static %}
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+body {
+  display: grid;
+  grid-template-columns: auto 0px; 
+}
+
+.top {
+  --offset: 50px; 
+
+  position: sticky;
+  bottom: 20px;      
+  margin-right: 10px; 
+  place-self: end;
+  margin-top: calc(100vh + var(--offset));
+
+  /* visual styling */
+  width: 45px;
+  aspect-ratio: 1;
+  background: #ff8b24;
+  border-radius: 10px;
+}
+
+.top:before {
+  content: "";
+  position: absolute;
+  inset: 30%;
+  transform: translateY(20%) rotate(-45deg);
+  border-top: 5px solid #fff;
+  border-right: 5px solid #fff;
+}
+
+p {
+  font-size: 25px;
+}
+
+.logged-check {
+    color: #45818E; /* Primary color */
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(69, 129, 142, 0.2);
+}
+
+.logged-cross {
+    color: #fd7474; /* Accent color from scroll button */
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(255, 139, 36, 0.2);
+}
+
+</style>
+<style>
+  /* استایل اصلی دکمه */
+  .home-return-btn {
+      background-color: #45818E;
+      color: white !important;
+      border: 2px solid #366f7a;
+      border-radius: 25px;
+      padding: 12px 30px;
+      font-family: 'B Nazanin';
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+  }
+  
+  /* افکت هنگام هاور */
+  .home-return-btn:hover {
+      background-color: #366f7a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      border-color: #2c5d66;
+  }
+  
+  /* افکت هنگام کلیک */
+  .home-return-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* آیکون پیکان */
+  .home-return-btn .arrow-icon {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+  }
+  
+  /* انیمیشن آیکون */
+  .home-return-btn:hover .arrow-icon {
+      transform: translateX(-5px);
+  }
+  
+  /* نسخه موبایل */
+  @media (max-width: 768px) {
+      .home-return-btn {
+          padding: 10px 20px;
+          font-size: 14px;
+          width: 100%;
+          justify-content: center;
+      }
+  }
+  </style>
+  <style>
+    /* Base Styles */
+    body {
+        font-family: 'B Nazanin', Tahoma, sans-serif;
+        background-color: #f5f7fa;
+        direction: rtl;
+        color: #2c3e50;
+    }
+    
+    /* Table Container */
+    .table-container {
+        margin: 20px auto;
+        overflow-x: auto;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        border-radius: 8px;
+        background: white;
+    }
+    
+    /* Table Styles */
+    table {
+        width: 100%;
+        min-width: 1200px;
+        border-collapse: collapse;
+    }
+    
+    th {
+        background-color: #45818E !important;
+        color: white !important;
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+        white-space: nowrap;
+        padding: 15px 12px !important;
+    }
+    
+    td {
+        padding: 12px !important;
+        vertical-align: middle !important;
+        border-bottom: 1px solid #eee !important;
+    }
+    
+    tr:hover td {
+        background-color: #f8f9fa;
+    }
+    
+    /* Scroll to Top Button */
+    .top {
+        background: #45818E !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .top:hover {
+        transform: translateY(-3px);
+        background: #366f7a !important;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .table-container {
+            margin: 10px;
+            border-radius: 0;
+        }
+        
+        th {
+            font-size: 14px;
+            padding: 12px 8px !important;
+        }
+        
+        td {
+            font-size: 13px;
+            padding: 10px 8px !important;
+        }
+        
+        .home-return-btn {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+    }
+    
+    /* Zebra Striping */
+    tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+    
+    /* Column Highlights */
+    td:first-child,
+    th:first-child {
+        background-color: #e9f2f4;
+        font-weight: bold;
+    }
+    
+    /* Hover Effects */
+    tr {
+        transition: all 0.2s ease;
+    }
+    
+    tr:hover {
+        transform: translateX(5px);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    </style>
+    <style>
+      /* Add sorting styles */
+      th.sortable {
+          cursor: pointer;
+          position: relative;
+          padding-right: 25px !important;
+      }
+      
+      th.sortable::after {
+          content: "";
+          position: absolute;
+          right: 8px;
+          top: 50%;
+          transform: translateY(-50%);
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #fff transparent;
+          visibility: hidden;
+      }
+      
+      th.sortable.asc::after {
+          visibility: visible;
+          transform: translateY(-30%) rotate(180deg);
+      }
+      
+      th.sortable.desc::after {
+          visibility: visible;
+          transform: translateY(-70%) rotate(0deg);
+      }
+      
+      th.sortable:hover::after {
+          visibility: visible;
+          opacity: 0.7;
+      }
+      .search-container {
+        direction: rtl;
+        padding: 0 15px;
+    }
+    
+    #searchInput:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(69, 129, 142, 0.3);
+        border-color: #366f7a;
+    }
+    @media (max-width: 768px) {
+      #searchInput {
+          width: 100%;
+          margin: 0 10px 15px;
+      }
+  }
+      </style>
+      
+      <script>
+       
+        $(document).ready(function() {
+            // Search functionality
+            $('#searchInput').on('keyup', function() {
+                const value = $(this).val().toLowerCase();
+                $('table tbody tr').filter(function() {
+                    let rowText = '';
+                    $(this).find('td').each(function() {
+                        rowText += ' ' + $(this).text().toLowerCase();
+                    });
+                    $(this).toggle(rowText.indexOf(value) > -1);
+                });
+            });
+        
+            // Add sorting functionality
+            $('th.sortable').click(function() {
+                const table = $(this).parents('table').eq(0);
+                const index = $(this).index();
+                const isAsc = $(this).hasClass('asc');
+        
+                // Remove existing classes
+                $('th.sortable').removeClass('asc desc');
+        
+                // Determine new direction
+                const newIsAsc = !isAsc;
+                $(this).addClass(newIsAsc ? 'asc' : 'desc');
+        
+                // Sort rows with proper direction
+                const rows = table.find('tbody tr').toArray().sort(comparer(index, newIsAsc));
+        
+                // Rebuild table
+                table.children('tbody').empty().append(rows);
+            });
+        
+            // Updated comparator function with empty row handling
+            function comparer(index, isAsc) {
+                return function(a, b) {
+                    const valA = getCellValue(a, index).trim();
+                    const valB = getCellValue(b, index).trim();
+            
+                    // Handle empty cells in CURRENT column only
+                    if (valA === "" && valB !== "") return 1;  // Push empty to bottom
+                    if (valB === "" && valA !== "") return -1; // Keep non-empty above
+                    if (valA === "" && valB === "") return 0;  // Both empty - maintain order
+            
+                    // Normalize values for comparison
+                    const normalizedA = normalizeValue(valA);
+                    const normalizedB = normalizeValue(valB);
+            
+                    let result = 0;
+            
+                    // Handle numeric comparison
+                    if (!isNaN(normalizedA) && !isNaN(normalizedB)) {
+                        result = normalizedA - normalizedB;
+                    }
+                    // Handle date comparison
+                    else if (normalizedA instanceof Date && normalizedB instanceof Date) {
+                        result = normalizedA - normalizedB;
+                    }
+                    // Handle string comparison
+                    else {
+                        result = normalizedA.toString().localeCompare(normalizedB.toString());
+                    }
+            
+                    return isAsc ? result : -result;
+                };
+            }
+            
+            // Remove the countEmptyCells function completely
+        
+            // Function to count empty cells in a row
+            function countEmptyCells(row) {
+                return $(row).find('td').toArray().filter(td => $(td).text().trim() === "").length;
+            }
+        
+            // Function to get cell value
+            function getCellValue(row, index) {
+                return $(row).children('td').eq(index).text();
+            }
+        
+            // Function to normalize value for comparison
+            function normalizeValue(value) {
+                if ($.isNumeric(value)) return parseFloat(value);
+        
+                // Try parsing Persian date (YYYY-MM-DD HH:mm:ss)
+                const dateParts = value.match(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/);
+                if (dateParts) {
+                    return new Date(
+                        parseInt(dateParts[1]),
+                        parseInt(dateParts[2]) - 1,
+                        parseInt(dateParts[3]),
+                        parseInt(dateParts[4]),
+                        parseInt(dateParts[5]),
+                        parseInt(dateParts[6])
+                    );
+                }
+        
+                return value.toString();
+            }
+        });
+        
+      </script>
+      <style>
+        /* Add these styles to your existing CSS */
+        .table-container {
+            max-height: 70vh;
+            overflow-y: auto;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        table {
+            position: relative;
+            border-collapse: collapse;
+        }
+        
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+        
+        th {
+            background-color: #45818E !important;
+            color: white !important;
+            padding: 15px 12px !important;
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* For RTL scrolling */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .table-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+        </style>
+</head>
+
+<body>
+<div>
+  <a href="{% url 'index' %}" class="home-return-btn">
+    <span class="glyphicon glyphicon-arrow-left arrow-icon"></span>
+    برگشت به صفحه اول
+</a>
+<br>
+<div class="search-container" style="margin: 20px 0; text-align: left;">
+  <input type="text" id="searchInput" class="form-control" placeholder="جستجو..." style="
+      padding: 12px 20px;
+      border: 2px solid #45818E;
+      border-radius: 25px;
+      font-family: 'B Nazanin';
+      font-size: 16px;
+      width: 300px;
+      max-width: 100%;
+      margin-bottom: 15px;
+  ">
+</div>
+<br>
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"><table id="dtBasicExample" class="table table-striped table-bordered table-sm dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="dtBasicExample_info" style="width: 100%;">
+  <thead>
+    <tr>
+      <th class="th-sm sortable">نوبت</th>
+      <th class="th-sm sortable">نام و نام خانوادگی</th>
+      <th class="th-sm sortable">ورود قبلی</th>
+      <th class="th-sm sortable">زمان شروع</th>
+      <th class="th-sm sortable">زمان پایان</th>
+      <th class="th-sm sortable">لاین</th>
+      <th class="th-sm sortable">داخلی</th>
+      <th class="th-sm sortable">اطفال</th>
+      <th class="th-sm sortable">جراحی</th>
+      <th class="th-sm sortable">اورژانس</th>
+      <th class="th-sm sortable">زنان</th>
+      <th class="th-sm sortable">ارتوپدی</th>
+      <th class="th-sm sortable">قلب</th>
+      <th class="th-sm sortable">الکتیو اول</th>
+      <th class="th-sm sortable">الکتیو دوم</th>
+      <th class="th-sm sortable">الکتیو سوم</th>
+  </tr>
+  </thead>
+<tbody>
+{% for x in mymembers %}
+<tr>
+<td>{{ x.num }}</td>
+<td>{{ x.name }}</td>
+<td class="text-center">
+    {% if x.logged %}
+        <span class="logged-check">✔</span>
+    {% else %}
+        <span class="logged-cross">✘</span>
+    {% endif %}
+</td>
+<td>{{ x.start_time }}</td>
+<td>{{ x.end_time }}</td>
+<td>{{ x.line|default:"" }}</td>
+<td>{{ x.internal|default:"" }}</td>
+<td>{{ x.pediatrics|default:"" }}</td>
+<td>{{ x.surgery|default:"" }}</td>
+<td>{{ x.emergency|default:"" }}</td>
+<td>{{ x.gynocology|default:"" }}</td>
+<td>{{ x.orthopedix|default:"" }}</td>
+<td>{{ x.cardiology|default:"" }}</td>
+<td>{{ x.elective_one|default:"" }}</td>
+<td>{{ x.elective_two|default:"" }}</td>
+<td>{{ x.elective_three|default:"" }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<br><br>
+<a href="{% url 'index' %}" class="home-return-btn">
+  <span class="glyphicon glyphicon-arrow-left arrow-icon"></span>
+  برگشت به صفحه اول
+</a>
+<br><br>
+</div>
+<a href="#" class="top"></a>
+<style>
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+</style>
+</body>
+</html>
+
